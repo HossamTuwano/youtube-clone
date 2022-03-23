@@ -1,0 +1,46 @@
+.header,
+.menu,
+.header__input,
+.header__icons {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  object-fit: contain;
+  width: 100%;
+  height: 25px;
+}
+
+.header {
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.header__input {
+  border: 1px solid lightgray;
+  width: 30%;
+}
+
+.header__inputButton {
+  width: 50px !important;
+  background-color: #fafafa;
+  border-left: 1px solid lightgray;
+  color: gray;
+}
+
+.header__input input {
+  width: 95%;
+  border: none;
+  outline: none;
+}
+
+.header__icons .icon,
+.menu .menu__icon {
+  margin-right: 1rem;
+}

@@ -1,23 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import RecommendedVideos from "./components/RecommendedVideos";
+import Sidebar from "./components/Sidebar";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+// import SearchIcon from "./SearchIcon"; //same thing as top
+// import VideoCallIcon from "./VideoCallIcon"; //change this to "@material-ui/icons/Notifications"
+// import AppsIcon from "./AppsIcon"; // samething as top
+// import NotificationsIcon from "./NotificationsIcon"; // samething as top
+// import Avatar from "./Avatar";
+
+// import a MenuIcone from material-ui/icons/search
+import "./App.css";
+import Header from "./components/Header";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Header />
+        <Routes>
+          <Route
+            path="/search/:searchTerm"
+            element={
+              <div className="app__page">
+                <Sidebar />
+                <SearchPage />
+              </div>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <div className="app__page">
+                <Sidebar />
+                <RecommendedVideos />
+              </div>
+            }
+          />
+        </Routes>
+        {/* 
+        <Routes>
+          <Route path="/search/:searchTerm" element={<Sidebar />}>
+            <div className="app__page">
+              <Sidebar />
+              <SearchPage />
+            </div>
+          </Route>
+          <Route path="/">
+            <div className="app__page">
+              <Sidebar />
+              <RecommendedVideos />
+            </div>
+          </Route>
+        </Routes> */}
+      </Router>
+      {/* <Header />
+
+      <div className="app__page">
+        <Sidebar />
+        <RecommendedVideos />
+      </div> */}
     </div>
   );
 }
